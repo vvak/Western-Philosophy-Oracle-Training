@@ -1,0 +1,61 @@
+run:
+  name: oracle-lora-sft-pilot
+  phase: pilot_sft
+  launch: manual
+
+model:
+  base_model: google/gemma-4-E2B-it
+  tokenizer: google/gemma-4-E2B-it
+  dtype: bfloat16
+  load_in_4bit: true
+
+dataset:
+  train_path: corpus/training/pilot/train.jsonl
+  text_field: text
+  metadata_fields:
+    - doc_id
+    - work_id
+    - version_id
+    - source_id
+    - title
+    - author
+    - language
+    - rights_basis
+    - quality_tier
+    - token_count
+  max_seq_length: 4096
+  packing: true
+
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+
+training:
+  epochs: 1
+  learning_rate: 0.0002
+  warmup_ratio: 0.03
+  weight_decay: 0.0
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 16
+  max_grad_norm: 1.0
+  save_steps: 250
+  logging_steps: 10
+
+evals:
+  philosophy_qa: corpus/evals/philosophy_qa.jsonl
+  provenance: corpus/evals/provenance.jsonl
+  hallucination_traps: corpus/evals/hallucination_traps.jsonl
+  oracle_style: corpus/evals/oracle_style.jsonl
+
+output:
+  dir: training/runs/oracle-lora-sft-pilot
+  adapter_dir: training/runs/oracle-lora-sft-pilot/adapter

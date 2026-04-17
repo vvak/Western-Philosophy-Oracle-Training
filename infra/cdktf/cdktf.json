@@ -1,0 +1,1 @@
+{"language":"typescript","app":"npx ts-node src/main.ts","projectId":"western-philosophy-oracle-training","sendCrashReports":"false","terraformProviders":["google-beta@~> 7.27"]}

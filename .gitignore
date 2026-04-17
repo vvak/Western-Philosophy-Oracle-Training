@@ -1,0 +1,30 @@
+.DS_Store
+.env
+.venv/
+node_modules/
+__pycache__/
+*.pyc
+
+# training artifacts
+checkpoints/
+runs/
+wandb/
+mlruns/
+outputs/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# caches
+.cache/
+hf_cache/
+transformers_cache/
+cdktf.out/
+.terraform/
+.terraform.lock.hcl
+
+# large data copies
+corpus/training/
+data/
