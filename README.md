@@ -5,7 +5,7 @@ Training, benchmarking, and Oracle/RAG scaffolding for models built on the `west
 Dataset/corpus repo:
 
 ```text
-/Users/vlad/projects/western-philosophy-corpus
+https://github.com/vvak/Western-Philosophy-Corpus-Agent
 ```
 
 This repo should contain training-specific material only: configs, runs, eval runners, Oracle prompts, retrieval design, release docs, and experiment notes.
@@ -66,8 +66,8 @@ training/
 Expected dataset export from corpus repo:
 
 ```text
-/Users/vlad/projects/western-philosophy-corpus/corpus/training/pilot/train.jsonl
-/Users/vlad/projects/western-philosophy-corpus/corpus/training/pilot/manifest.json
+https://github.com/vvak/Western-Philosophy-Corpus-Agent/corpus/training/pilot/train.jsonl
+https://github.com/vvak/Western-Philosophy-Corpus-Agent/training/pilot/manifest.json
 ```
 
 Configs should reference dataset versions explicitly.
